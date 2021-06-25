@@ -26,7 +26,8 @@ class MainController extends Controller
 
     public function Menu()
     {
-        return view('web.front.menu');
+        $menus = Menu::get();
+        return view('web.front.menu', compact('menus'));
     }
 
     public function setMeja(Request $request)
@@ -56,6 +57,11 @@ class MainController extends Controller
             'status' => ($booked == true)?true:false,
             'auth' => ($auth == true)?true:false
         ]);
+    }
+
+    public function addMenu(Request $request)
+    {
+        dd($request->all());
     }
 
 }
