@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class carts extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
 
-
-    public function booked()
+    public function items()
     {
-        return $this->hasOne('App\Models\Booked', 'id', 'id_booked');
+        return $this->hasMany('App\Models\Menu', 'id', 'id_menu');
     }
 }

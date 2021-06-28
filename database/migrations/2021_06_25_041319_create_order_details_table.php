@@ -16,7 +16,7 @@ class CreateOrderDetailsTable extends Migration
         Schema::create('order_details', function (Blueprint $table) {
             $table->id();
             $table->integer('id_booked');
-            $table->integer('id_order');
+            $table->string('id_order');
             $table->integer('payment_type');
             $table->integer('status');
             $table->timestamps();

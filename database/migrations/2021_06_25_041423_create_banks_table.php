@@ -16,13 +16,13 @@ class CreateBanksTable extends Migration
         Schema::create('banks', function (Blueprint $table) {
             $table->id();
             $table->string('nama_bank');
+            $table->string('img_bank');
             $table->string('no_rek');
             $table->string('code_bank');
             $table->string('status');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

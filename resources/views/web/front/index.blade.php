@@ -1,7 +1,18 @@
 @extends('template.main')
 @section('content')
 @section('style')
+<style>
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
 
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+</style>
 @endsection
 <div class="" style="
     min-height: 30rem;
@@ -46,7 +57,8 @@
                 function (data) {
                     if(data.auth == true)
                     {
-                        window.location.replace(`{{ route('web.menu') }}`)
+                        var uri = window.location.origin;
+                        window.location.replace(`${uri}/menu/${data.uri}`)
                     }
                 },
             );

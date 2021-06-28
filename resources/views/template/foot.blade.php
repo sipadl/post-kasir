@@ -1,14 +1,54 @@
 
 @if(Request::segment(1) != '')
+@php
+$p = Request::segment(2);
+$d = Request::segment(3);
+@endphp
 <div class="fixed-bottom">
   <div class="d-flex justify-content-between bg-dark">
       <div class="nav-link left">
-          <h5 class="text-light my-2">Total</h5>
-      </div>
-      <div class="nav-link right">
-          <a href="javascript:;" class="btn btn-info text-light">  
+    @if(Request::segment(1) != 'waiting' AND Request::segment(1) != 'bayar' AND Request::segment(1) != 'barcode' )
+          <h5 class="text-light my-2">Total : <span id="qtyx">0 Items</span></h5>
+         @if($d)
+          <h5 class="text-light my-2">Total Bayar : <span id="bayar">Rp 0</span></h5>
+        @endif
+    @endif
+        </div>
+      <div class="nav-link right p-3">
+          @if($d)
+          <a href="{{ route('web.menu',[$d])}}" class="btn btn-info text-light">  
+              Kembali
+          </a>
+          <a href="{{ route('make-order',[$d])}}" class="btn btn-info text-light">  
               Proses
           </a>
+          @else
+            @if(Request::segment(1) == 'payment')
+            <a href="{{ route('bayar',[$p])}}" class="btn btn-info text-light">  
+                Bayar
+            </a>
+            @elseif(Request::segment(1) == 'waiting')
+            <a href="{{ route('bayar',[$p])}}" class="btn btn-info text-light">  
+                Pilih Metode Pembayaran
+            </a>
+            @else
+                @if(Request::segment(1) == 'bayar')
+                <button type="button" id="barcode" class="btn btn-info text-light">  
+                    Lihat QR Code / Virtual Account
+                </button>
+                @else
+                    @if(Request::segment(1) == 'barcode')
+                    {{-- <a href="{{ route('tq',[$p])}}" class="btn btn-info text-light">  
+                        Selesai
+                    </a> --}}
+                    @else
+                    <a href="{{ route('li-cart',[$p])}}" class="btn btn-info text-light">  
+                        Proses
+                    </a>
+                    @endif
+                @endif
+            @endif
+          @endif
       </div>
   </div>
 </div>

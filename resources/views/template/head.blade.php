@@ -18,4 +18,17 @@
   @yield('style')
   <body>
     <div class="container-fluid" style="padding:0">  
-      <div class="p-4">
+      <div class="fixed-top">
+        <nav class="p-4 bg-light" style="box-shadow: -1px 5px 5px 0px rgba(0,0,0,0.24);
+        -webkit-box-shadow: -1px 5px 5px 0px rgba(0,0,0,0.24);
+        -moz-box-shadow: -1px 5px 5px 0px rgba(0,0,0,0.24);">
+          <div class="d-flex justify-content-center align-text-center">
+            <div class="">
+              {{-- <img src="https://cdn.shortpixel.ai/spai/w_444+q_lossy+ret_img+to_webp/https://expandreality.com/wp-content/uploads/2016/08/IMG_2596-br-for-website-size-169x300.jpg" width="34px" height="auto" alt=""> --}}
+              <h5>Create Our Logos</h5>
+            </div>
+            {{-- <div class="">The World</div> --}}
+          </div>
+        </nav>
+      </div>
+      <div class="p-4" style="margin-top: 5rem">

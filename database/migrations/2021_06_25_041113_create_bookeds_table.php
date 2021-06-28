@@ -16,7 +16,7 @@ class CreateBookedsTable extends Migration
         Schema::create('bookeds', function (Blueprint $table) {
             $table->id();
             $table->integer('id_meja');
-            $table->string('name');
+            $table->string('no_telp');
             $table->string('no_meja');
             $table->string('tanggal');
             $table->string('waktu');
